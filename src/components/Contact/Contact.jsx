@@ -78,7 +78,7 @@ export default function Contact() {
             />
             {nameError && (
               <p className="field-error" id="f-nome-erro">
-                Conte como podemos chamar vocês.
+                Conte como podemos chamar vocês
               </p>
             )}
           </div>
