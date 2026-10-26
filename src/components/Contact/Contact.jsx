@@ -63,7 +63,7 @@ export default function Contact() {
 
         <form className="contact-form" onSubmit={onSubmit} noValidate>
           <div className="field">
-            <label htmlFor="f-nome">Seu nome</label>
+            <label htmlFor="f-nome">Nome dos noivos</label>
             <input
               ref={nameRef}
               id="f-nome"
@@ -78,7 +78,7 @@ export default function Contact() {
             />
             {nameError && (
               <p className="field-error" id="f-nome-erro">
-                Conte como podemos te chamar.
+                Conte como podemos chamar vocês.
               </p>
             )}
           </div>
