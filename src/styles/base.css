@@ -1,0 +1,162 @@
+/* =========================================================
+   Tokens — paleta off-white, vinho e marrom
+   ========================================================= */
+:root {
+  /* cor */
+  --linho: #f9f4f0; /* fundo principal, off-white com fundo rosado de pó */
+  --po: #f1e5dd; /* superfície secundária, tom de pó compacto */
+  --po-escuro: #e6d3c7;
+  --vinho: #5c1a2a; /* acento principal */
+  --vinho-escuro: #3b101b; /* faixas e rodapé */
+  --cacau: #6b4a3c; /* marrom de apoio */
+  --tinta: #2c1f1b; /* texto */
+  --tinta-suave: #6d5a52; /* texto secundário */
+  --linha: rgba(107, 74, 60, 0.22);
+  --nude: #c99a82;
+
+  /* tipografia */
+  --font-display: 'Bodoni Moda Variable', 'Didot', 'Times New Roman', serif;
+  --font-body: 'Jost', 'Futura', 'Helvetica Neue', sans-serif;
+  --font-script: 'Pinyon Script', cursive;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
+  --step-3: clamp(2rem, 1.5rem + 2vw, 3.1rem);
+  --step-4: clamp(2.6rem, 1.6rem + 4.4vw, 5.4rem);
+
+  /* espaço */
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --section-space: clamp(5rem, 10vw, 9rem);
+  --container: 1200px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --header-h: 76px;
+}
+
+/* =========================================================
+   Reset leve
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--linho);
+  color: var(--tinta);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote,
+ol,
+ul {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--vinho);
+  color: var(--linho);
+}
+
+:focus-visible {
+  outline: 2px solid var(--vinho);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--vinho);
+  color: var(--linho);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

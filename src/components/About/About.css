@@ -1,0 +1,41 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: clamp(3rem, 8vw, 7rem);
+}
+.about-media {
+  max-width: 420px;
+  padding: 14px 14px 0;
+}
+.about-text p {
+  max-width: 56ch;
+  margin-top: 1.2rem;
+  color: var(--tinta-suave);
+}
+.about-text .about-lead {
+  margin-top: 2rem;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--vinho);
+}
+.signature {
+  margin-top: 2.2rem !important;
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 2rem + 1.5vw, 3.2rem);
+  line-height: 1;
+  color: var(--vinho) !important;
+}
+
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-media {
+    justify-self: center;
+    width: 100%;
+    max-width: 320px;
+  }
+}

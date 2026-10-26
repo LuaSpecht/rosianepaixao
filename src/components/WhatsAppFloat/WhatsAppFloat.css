@@ -1,0 +1,31 @@
+.whatsapp-float {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--vinho);
+  color: var(--linho);
+  box-shadow: 0 10px 30px -10px rgba(59, 16, 27, 0.6);
+  transform: translateY(0);
+  transition:
+    transform 0.4s var(--ease-out),
+    opacity 0.4s var(--ease-out),
+    background-color 0.3s;
+}
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+.whatsapp-float:hover {
+  background: var(--vinho-escuro);
+}
+.whatsapp-float.is-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}

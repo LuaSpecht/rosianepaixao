@@ -1,0 +1,74 @@
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.service {
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--vinho);
+}
+.service h3 {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 400;
+  color: var(--tinta);
+}
+.service p {
+  max-width: 44ch;
+  margin-top: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  background: var(--po);
+  border-radius: 240px 240px 0 0;
+}
+.step {
+  position: relative;
+}
+.step-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-style: italic;
+  line-height: 1;
+  color: var(--vinho);
+}
+.step h3 {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 500;
+}
+.step p {
+  margin-top: 0.6rem;
+  font-size: 0.98rem;
+  color: var(--tinta-suave);
+}
+
+@media (min-width: 861px) {
+  .steps {
+    padding-top: clamp(4rem, 7vw, 6rem);
+  }
+}
+
+@media (max-width: 860px) {
+  .services-list,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .steps {
+    border-radius: 160px 160px 0 0;
+    padding-top: 5rem;
+    text-align: center;
+  }
+  .step p {
+    margin-inline: auto;
+    max-width: 36ch;
+  }
+}

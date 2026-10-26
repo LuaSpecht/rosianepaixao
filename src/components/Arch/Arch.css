@@ -1,0 +1,82 @@
+.arch {
+  position: relative;
+  aspect-ratio: 5 / 7;
+  width: 100%;
+}
+.arch-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  background: var(--po);
+}
+.arch-frame img,
+.arch-frame .photo-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* moldura fina concêntrica, como o aro de um espelho de camarim */
+.arch-outline {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: calc(100% + 28px);
+  height: calc(100% + 14px);
+  max-width: none;
+  overflow: visible;
+  pointer-events: none;
+}
+.arch-outline path {
+  fill: none;
+  stroke: var(--vinho);
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* Animação do arco: o contorno é "desenhado" e a foto sobe como um véu */
+.js .arch[data-arch] .arch-outline path {
+  stroke-dashoffset: 1;
+}
+.js .arch[data-arch] .arch-frame {
+  clip-path: inset(100% 0 0 0);
+}
+.js .arch[data-arch] .arch-frame > * {
+  transform: scale(1.12);
+}
+.js .arch.is-revealed .arch-outline path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.8s var(--ease-in-out) 0.5s;
+}
+.js .arch.is-revealed .arch-frame {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.4s var(--ease-out);
+}
+.js .arch.is-revealed .arch-frame > * {
+  transform: scale(1);
+  transition: transform 2.2s var(--ease-out);
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 2rem;
+  background:
+    radial-gradient(120% 80% at 50% 20%, rgba(255, 255, 255, 0.55), transparent 60%),
+    linear-gradient(170deg, var(--po) 0%, var(--po-escuro) 100%);
+  color: var(--cacau);
+  text-align: center;
+}
+.photo-placeholder span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-2);
+}
+.photo-placeholder small {
+  font-size: var(--step--1);
+  color: var(--tinta-suave);
+}

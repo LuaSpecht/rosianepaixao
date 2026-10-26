@@ -1,0 +1,143 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--header-h);
+}
+
+/*
+ * O fundo com desfoque fica num pseudo-elemento, e NÃO no próprio header.
+ * Motivo: `backdrop-filter` num elemento faz ele virar o "containing block" dos
+ * filhos com `position: fixed`. Se estivesse no header, o menu mobile (.nav, fixed)
+ * passaria a ter a altura do header (76px) em vez da tela inteira.
+ */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(249, 244, 240, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--linha);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.site-header.is-scrolled::before {
+  opacity: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.nav ul {
+  display: flex;
+  gap: 2rem;
+}
+.nav a:not(.btn) {
+  font-size: 0.93rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--tinta);
+  transition: color 0.3s;
+}
+.nav a:not(.btn):hover {
+  color: var(--vinho);
+}
+.nav-cta {
+  min-height: 42px;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.88rem;
+}
+
+.menu-toggle {
+  display: none;
+  position: relative;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.menu-toggle-bar {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 1.5px;
+  background: var(--vinho);
+  transition:
+    transform 0.4s var(--ease-out),
+    top 0.4s var(--ease-out);
+}
+.menu-toggle-bar:nth-child(1) {
+  top: 17px;
+}
+.menu-toggle-bar:nth-child(2) {
+  top: 26px;
+}
+.menu-toggle[aria-expanded='true'] .menu-toggle-bar:nth-child(1) {
+  top: 21.5px;
+  transform: rotate(45deg);
+}
+.menu-toggle[aria-expanded='true'] .menu-toggle-bar:nth-child(2) {
+  top: 21.5px;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 960px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    background: var(--linho);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.45s var(--ease-out),
+      visibility 0s linear 0.45s;
+  }
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 0.45s var(--ease-out),
+      visibility 0s;
+  }
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+  }
+  .nav a:not(.btn) {
+    font-family: var(--font-display);
+    font-size: 2rem;
+  }
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* página atual no menu */
+.nav a.active:not(.btn) {
+  color: var(--vinho);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}

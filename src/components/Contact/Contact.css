@@ -1,0 +1,141 @@
+.contact {
+  background: var(--po);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
+}
+.contact-direct {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+.contact-direct a {
+  color: var(--vinho);
+  text-underline-offset: 4px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.8rem;
+  padding: clamp(1.8rem, 4vw, 3rem);
+  background: var(--linho);
+}
+.field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+.field label,
+.field legend {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--cacau);
+}
+.optional {
+  color: var(--tinta-suave);
+  opacity: 0.8;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.6rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--linha);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1.05rem;
+  transition: border-color 0.3s;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 3.5rem;
+  line-height: 1.6;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--tinta-suave);
+  opacity: 0.55;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--vinho);
+}
+.field input[aria-invalid='true'] {
+  border-bottom-color: var(--vinho);
+}
+.field-error {
+  font-size: 0.85rem;
+  color: var(--vinho);
+}
+
+.field--choices {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.field--choices legend {
+  margin-bottom: 0.7rem;
+  padding: 0;
+}
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.choice {
+  position: relative;
+  cursor: pointer;
+}
+.choice input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+.choice span {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  font-size: 0.93rem;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+.choice input:checked + span {
+  background: var(--vinho);
+  border-color: var(--vinho);
+  color: var(--linho);
+}
+.choice input:focus-visible + span {
+  outline: 2px solid var(--vinho);
+  outline-offset: 2px;
+}
+
+.btn--whatsapp {
+  justify-self: start;
+}
+
+@media (max-width: 860px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+  .btn--whatsapp {
+    justify-self: stretch;
+  }
+}

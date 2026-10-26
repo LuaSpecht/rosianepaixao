@@ -1,0 +1,122 @@
+.gallery {
+  background: var(--po);
+}
+.gallery-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.instagram-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--vinho);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+.instagram-handle svg {
+  width: 22px;
+  height: 22px;
+}
+.instagram-handle:hover span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(3px, 0.8vw, 10px);
+}
+
+.tile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--po-escuro);
+}
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out);
+}
+.tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--vinho-escuro);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+.tile:hover img,
+.tile:focus-visible img {
+  transform: scale(1.045);
+}
+.tile:hover::after,
+.tile:focus-visible::after {
+  opacity: 0.18;
+}
+.tile:focus-visible {
+  outline-offset: -3px;
+  outline-color: var(--linho);
+}
+.tile-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+}
+
+.tile--skeleton {
+  cursor: default;
+  background: linear-gradient(100deg, var(--po-escuro) 30%, #efe1d8 50%, var(--po-escuro) 70%);
+  background-size: 300% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.tile.is-new {
+  animation: tileIn 0.8s var(--ease-out) both;
+}
+@keyframes tileIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gallery-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.gallery-empty {
+  grid-column: 1 / -1;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: var(--tinta-suave);
+}
+.gallery-empty a {
+  color: var(--vinho);
+}

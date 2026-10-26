@@ -1,0 +1,145 @@
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(7rem, 14vw, 12rem);
+}
+.testimonials-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.testimonials .section-title {
+  max-width: 18ch;
+  margin-inline: auto;
+  font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.4rem);
+}
+
+.quotes {
+  display: grid;
+  max-width: 720px;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+}
+.quote {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out),
+    visibility 0s linear 0.8s;
+}
+.quote.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.8s var(--ease-out) 0.2s,
+    transform 0.8s var(--ease-out) 0.2s,
+    visibility 0s;
+}
+.quote blockquote {
+  margin: 0;
+}
+.quote p {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.55;
+  color: var(--tinta);
+}
+.quote p::before {
+  content: '“';
+}
+.quote p::after {
+  content: '”';
+}
+.quote figcaption {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--vinho);
+}
+.quote figcaption::before,
+.quote figcaption::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--vinho);
+  opacity: 0.5;
+}
+
+.quotes-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 2.5rem;
+}
+.quotes-nav button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.quotes-nav button::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--vinho);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+.quotes-nav button[aria-selected='true']::before {
+  background: var(--vinho);
+}
+
+/* swatches de maquiagem flutuando */
+.swatch {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+.swatch--a {
+  top: 6%;
+  left: -3%;
+  width: clamp(150px, 22vw, 320px);
+  --r: -8deg;
+}
+.swatch--b {
+  bottom: 4%;
+  right: -2%;
+  width: clamp(160px, 24vw, 340px);
+  --r: 6deg;
+}
+.swatch--c {
+  top: 12%;
+  right: 8%;
+  width: clamp(80px, 9vw, 130px);
+  --r: 14deg;
+  opacity: 0.9;
+}
+.swatch {
+  transform: translate3d(0, var(--py, 0px), 0) rotate(var(--r, 0deg));
+}
+
+@media (max-width: 700px) {
+  .swatch--a {
+    top: 2%;
+    left: -12%;
+  }
+  .swatch--b {
+    bottom: 1%;
+    right: -14%;
+  }
+  .swatch--c {
+    top: 4%;
+    right: 2%;
+  }
+}

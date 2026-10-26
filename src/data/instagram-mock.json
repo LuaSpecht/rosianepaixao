@@ -1,0 +1,285 @@
+{
+  "profile": {
+    "username": "rosianepaixao",
+    "picture": null
+  },
+  "items": [
+    {
+      "id": "m1",
+      "type": "CAROUSEL_ALBUM",
+      "caption": "Legenda de exemplo. Quando a galeria estiver conectada, aqui aparece o texto real do post da Rosiane, com quebras de linha e tudo.\n\nEsse primeiro post é um carrossel: use as setas ou arraste para o lado para ver as outras fotos.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-10-18T15:00:00.000Z",
+      "likes": 128,
+      "comments": 21,
+      "thumb": "/images/penteado-1.jpeg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/images/penteado-1.jpeg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-01.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-02.svg"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "type": "VIDEO",
+      "caption": "Post de vídeo (Reels) de exemplo. No site publicado, o vídeo toca aqui, sem som, com os controles do navegador.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-10-14T15:00:00.000Z",
+      "likes": 96,
+      "comments": 8,
+      "thumb": "/mock/exemplo-03.svg",
+      "media": [
+        {
+          "type": "VIDEO",
+          "url": null,
+          "thumb": "/mock/exemplo-03.svg"
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "type": "VIDEO",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-10-10T15:00:00.000Z",
+      "likes": 68,
+      "comments": 4,
+      "thumb": "/mock/exemplo-04.svg",
+      "media": [
+        {
+          "type": "VIDEO",
+          "url": null,
+          "thumb": "/mock/exemplo-04.svg"
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "type": "CAROUSEL_ALBUM",
+      "caption": "Carrossel de exemplo com três fotos.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-10-06T15:00:00.000Z",
+      "likes": 75,
+      "comments": 5,
+      "thumb": "/mock/exemplo-05.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-05.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-06.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-07.svg"
+        }
+      ]
+    },
+    {
+      "id": "m6",
+      "type": "IMAGE",
+      "caption": "Outra legenda de exemplo, um pouco maior, para ver como o texto se comporta na lateral do modal quando a Rosiane escreve bastante sobre a noiva, o penteado escolhido e os produtos usados na pele.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-10-02T15:00:00.000Z",
+      "likes": 82,
+      "comments": 6,
+      "thumb": "/mock/exemplo-06.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-06.svg"
+        }
+      ]
+    },
+    {
+      "id": "m7",
+      "type": "IMAGE",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-28T15:00:00.000Z",
+      "likes": 89,
+      "comments": 7,
+      "thumb": "/mock/exemplo-07.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-07.svg"
+        }
+      ]
+    },
+    {
+      "id": "m8",
+      "type": "VIDEO",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-24T15:00:00.000Z",
+      "likes": 96,
+      "comments": 8,
+      "thumb": "/mock/exemplo-08.svg",
+      "media": [
+        {
+          "type": "VIDEO",
+          "url": null,
+          "thumb": "/mock/exemplo-08.svg"
+        }
+      ]
+    },
+    {
+      "id": "m9",
+      "type": "IMAGE",
+      "caption": "Outra legenda de exemplo, um pouco maior, para ver como o texto se comporta na lateral do modal quando a Rosiane escreve bastante sobre a noiva, o penteado escolhido e os produtos usados na pele.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-20T15:00:00.000Z",
+      "likes": 103,
+      "comments": 9,
+      "thumb": "/mock/exemplo-09.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-09.svg"
+        }
+      ]
+    },
+    {
+      "id": "m10",
+      "type": "CAROUSEL_ALBUM",
+      "caption": "Carrossel de exemplo com três fotos.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-16T15:00:00.000Z",
+      "likes": 110,
+      "comments": 10,
+      "thumb": "/mock/exemplo-10.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-10.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-11.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-12.svg"
+        }
+      ]
+    },
+    {
+      "id": "m11",
+      "type": "IMAGE",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-12T15:00:00.000Z",
+      "likes": 117,
+      "comments": 11,
+      "thumb": "/mock/exemplo-11.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-11.svg"
+        }
+      ]
+    },
+    {
+      "id": "m12",
+      "type": "VIDEO",
+      "caption": "Outra legenda de exemplo, um pouco maior, para ver como o texto se comporta na lateral do modal quando a Rosiane escreve bastante sobre a noiva, o penteado escolhido e os produtos usados na pele.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-08T15:00:00.000Z",
+      "likes": 124,
+      "comments": 12,
+      "thumb": "/mock/exemplo-12.svg",
+      "media": [
+        {
+          "type": "VIDEO",
+          "url": null,
+          "thumb": "/mock/exemplo-12.svg"
+        }
+      ]
+    },
+    {
+      "id": "m13",
+      "type": "IMAGE",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-09-04T15:00:00.000Z",
+      "likes": 131,
+      "comments": 13,
+      "thumb": "/mock/exemplo-13.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-13.svg"
+        }
+      ]
+    },
+    {
+      "id": "m14",
+      "type": "IMAGE",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-08-31T15:00:00.000Z",
+      "likes": 138,
+      "comments": 14,
+      "thumb": "/mock/exemplo-14.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-14.svg"
+        }
+      ]
+    },
+    {
+      "id": "m15",
+      "type": "CAROUSEL_ALBUM",
+      "caption": "Carrossel de exemplo com três fotos.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-08-27T15:00:00.000Z",
+      "likes": 145,
+      "comments": 15,
+      "thumb": "/mock/exemplo-15.svg",
+      "media": [
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-15.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-16.svg"
+        },
+        {
+          "type": "IMAGE",
+          "url": "/mock/exemplo-01.svg"
+        }
+      ]
+    },
+    {
+      "id": "m16",
+      "type": "VIDEO",
+      "caption": "Foto única de exemplo.",
+      "permalink": "https://www.instagram.com/",
+      "timestamp": "2026-08-23T15:00:00.000Z",
+      "likes": 152,
+      "comments": 16,
+      "thumb": "/mock/exemplo-16.svg",
+      "media": [
+        {
+          "type": "VIDEO",
+          "url": null,
+          "thumb": "/mock/exemplo-16.svg"
+        }
+      ]
+    }
+  ]
+}
