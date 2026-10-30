@@ -52,10 +52,10 @@ export default function Hero() {
           <Arch revealed={loaded}>
             <img
               ref={imgRef}
-              src="/images/penteado-1.jpeg"
-              alt="Noiva de costas no camarim, com penteado semipreso e cachos longos e soltos"
-              width="1079"
-              height="1262"
+              src="/images/home-1.jpeg"
+              alt="Rosiane Paixão sorrindo, sentada, de blusa preta e calça preta"
+              width="1086"
+              height="1600"
               fetchPriority="high"
               onLoad={() => setLoaded(true)}
               onError={() => setLoaded(true)}

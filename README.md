@@ -14,7 +14,7 @@ SPA em **React 19 + Vite + React Router** hospedada no **Netlify**. Maquiagem e 
 O endereço antigo `/depoimentos` redireciona para `/noivas#depoimentos`.
 Links com âncora (`/pagina#id-da-secao`) rolam até a seção automaticamente (ver `Layout.jsx`).
 
-Para criar uma página nova: componente em `src/pages/`, rota em `src/App.jsx` e item no menu em `src/data/content.js` (`navLinks`).
+Para criar uma página nova: componente em `src/pages/`, rota em `src/App.jsx`, item no menu em `src/data/content.js` (`navLinks`) e o endereço em `public/sitemap.xml`.
 O `netlify.toml` já tem o redirect que faz as rotas funcionarem ao abrir o link direto ou dar F5.
 
 ## Rodando localmente
