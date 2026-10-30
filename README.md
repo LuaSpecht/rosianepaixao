@@ -79,24 +79,34 @@ netlify/functions/
 
 ## Conectando o Instagram
 
-A API antiga (Basic Display) foi desligada pela Meta em dez/2024. Usamos a
-**Instagram API com login do Instagram**, que exige conta Profissional (não precisa de Página no Facebook).
+O app da Meta usa a **API do Instagram com login unificado** (a opção "só login do Instagram"
+não está mais disponível para apps novos). O token gerado é de **usuário do sistema**: começa com
+`EAA` e **não expira**.
 
-1. No app do Instagram da Rosiane: *Configurações → Tipo de conta e ferramentas → Mudar para conta profissional*.
-2. Em [developers.facebook.com](https://developers.facebook.com): criar um app (tipo **Empresa**) e adicionar o produto **Instagram** → *API setup with Instagram login*.
-3. Em *Generate access tokens*, adicionar a conta da Rosiane (ela precisa aceitar o convite em
-   *Configurações → Apps e sites → Convites de testador* no Instagram, se o app estiver em modo de desenvolvimento) e gerar o token.
-   Esse token já é de **longa duração (60 dias)**.
-4. No Netlify: *Site configuration → Environment variables* → `INSTAGRAM_TOKEN` = token gerado.
-5. Fazer um novo deploy. A galeria passa a vir de `/api/instagram`.
+Configuração atual (feita em 30/10/2026):
+- App **siteRosiane** (developers.facebook.com, conta da Luana) ligado ao portfólio empresarial
+  **rosianepaixaomakeup** da Rosiane (Luana é administradora do portfólio).
+- Instagram `@rosianepaixaonoivas` adicionado como **Testador do Instagram** do app.
+- Caso de uso → Personalizar → **API setup with Unified login** → configuração com o Instagram
+  como ativo → **Gerar tokens de acesso**.
+
+Variáveis no Netlify (*Site configuration → Environment variables*):
+
+| Variável            | Obrigatória | O que é                                                                 |
+| ------------------- | ----------- | ----------------------------------------------------------------------- |
+| `INSTAGRAM_TOKEN`   | sim         | O token gerado (começa com `EAA`). Nunca coloque no código.              |
+| `INSTAGRAM_USER_ID` | às vezes    | ID numérico da conta do Instagram. A function tenta descobrir sozinha; se `/api/instagram` responder pedindo essa variável, cadastre. |
+| `GRAPH_API_VERSION` | não         | Versão da Graph API (padrão `v25.0`). Troque se a Meta avisar que a versão expirou. |
+
+Depois de cadastrar, faça um novo deploy e abra `https://rosianepaixao.com.br/api/instagram`.
+Se der erro, a resposta traz um campo `detail` com a mensagem da Meta.
 
 **Por que uma function e não chamar a API direto do navegador?** O token dá acesso à conta da Rosiane.
 No front ele ficaria visível para qualquer pessoa no código-fonte. A function guarda o token no servidor,
 faz cache do feed por 1h (Netlify Blobs + CDN) e, se o Instagram cair, devolve o último feed bom.
 
-**Renovação:** `refresh-instagram-token` roda toda semana, renova o token (mais 60 dias) e guarda no Netlify Blobs.
-Se um dia for preciso gerar um token novo manualmente, é só trocar a variável `INSTAGRAM_TOKEN` —
-a function percebe a troca e passa a usar o novo.
+**Renovação:** tokens `EAA` não vencem. A function `refresh-instagram-token` continua no projeto para o
+caso de um dia usar um token do "login do Instagram" (`IG…`, vale 60 dias) — o código detecta o tipo sozinho.
 
 ### Mostrar o site para a Rosiane antes do token
 

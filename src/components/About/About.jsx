@@ -1,4 +1,4 @@
-import Arch, { PhotoPlaceholder } from '../Arch/Arch.jsx';
+import Arch from '../Arch/Arch.jsx';
 import './About.css';
 
 export default function About() {
@@ -7,8 +7,14 @@ export default function About() {
       <div className="container about-grid">
         <figure className="about-media">
           <Arch>
-            {/* TODO: trocar pela foto do editorial da Rosiane */}
-            <PhotoPlaceholder title="Foto da Rosiane" note="editorial em produção" />
+            <img
+              src="/images/working-1.jpeg"
+              alt="Rosiane fazendo a maquiagem de uma noiva, aplicando delineador com pincel"
+              width="1000"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+            />
           </Arch>
         </figure>
 

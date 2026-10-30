@@ -1,11 +1,11 @@
-import { GRAPH, getToken, saveToken } from './_shared/instagram.mjs';
+import { GRAPH_INSTAGRAM, getToken, isSystemUserToken, saveToken } from './_shared/instagram.mjs';
 
 /**
- * Function agendada: renova o token de longa duração do Instagram.
+ * Function agendada: renova o token do Instagram (só quando necessário).
  *
- * O token vale 60 dias. Ele pode ser renovado a qualquer momento depois de 24h de vida,
- * e cada renovação devolve um token novo com mais 60 dias. Rodando toda semana, o token
- * nunca chega perto de vencer — e a Rosiane não precisa fazer nada.
+ * - Token de usuário do sistema ("EAA…", login unificado): NÃO vence. Não faz nada.
+ * - Token do login do Instagram ("IG…"): vale 60 dias e pode ser renovado depois de 24h
+ *   de vida. Rodando toda semana, nunca chega perto de vencer.
  *
  * Obs.: functions agendadas só rodam no site publicado (não no `netlify dev`).
  * Para testar manualmente: Netlify > Logs > Functions > refresh-instagram-token > "Run now".
@@ -17,7 +17,12 @@ export default async () => {
     return;
   }
 
-  const url = new URL(`${GRAPH}/refresh_access_token`);
+  if (isSystemUserToken(token)) {
+    console.log('[refresh] token de usuário do sistema não expira — nada a fazer');
+    return;
+  }
+
+  const url = new URL(`${GRAPH_INSTAGRAM}/refresh_access_token`);
   url.searchParams.set('grant_type', 'ig_refresh_token');
   url.searchParams.set('access_token', token);
 

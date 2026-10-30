@@ -1,9 +1,17 @@
-import { GRAPH, getToken, store } from './_shared/instagram.mjs';
+import {
+  GRAPH_FACEBOOK,
+  GRAPH_INSTAGRAM,
+  getInstagramUserId,
+  getToken,
+  graph,
+  isSystemUserToken,
+  store,
+} from './_shared/instagram.mjs';
 
 /**
  * GET /api/instagram
  *
- * Proxy entre o site e a API do Instagram (Instagram API com login do Instagram).
+ * Proxy entre o site e a API do Instagram.
  * Por que existe: o token de acesso não pode ir para o navegador — qualquer um veria
  * no código-fonte e poderia usar a conta da Rosiane. Aqui ele fica só no servidor.
  *
@@ -43,10 +51,7 @@ export default async () => {
   }
 
   try {
-    const [profile, media] = await Promise.all([
-      graph('/me', { fields: 'username,profile_picture_url' }, token),
-      graph('/me/media', { fields: MEDIA_FIELDS, limit: LIMIT }, token),
-    ]);
+    const { profile, media } = await fetchInstagram(token);
 
     const data = {
       profile: { username: profile.username, picture: profile.profile_picture_url ?? null },
@@ -57,8 +62,11 @@ export default async () => {
     return json(data);
   } catch (err) {
     console.error('[instagram] falha ao buscar feed:', err.message);
-    // Se o Instagram falhar, devolve o último feed bom (mesmo vencido)
-    return cached ? json(cached.data) : json({ error: 'Não foi possível carregar o Instagram' }, 502);
+    // Se o Instagram falhar, devolve o último feed bom (mesmo vencido).
+    // A mensagem de erro da Meta não contém o token, então pode ir na resposta (ajuda a depurar).
+    return cached
+      ? json(cached.data)
+      : json({ error: 'Não foi possível carregar o Instagram', detail: err.message }, 502);
   }
 };
 
@@ -66,17 +74,24 @@ export const config = { path: '/api/instagram' };
 
 // ---------------------------------------------------------------------------
 
-async function graph(path, params, token) {
-  const url = new URL(GRAPH + path);
-  Object.entries({ ...params, access_token: token }).forEach(([k, v]) =>
-    url.searchParams.set(k, String(v)),
-  );
-  const res = await fetch(url);
-  const body = await res.json();
-  if (!res.ok || body.error) {
-    throw new Error(body.error?.message || `HTTP ${res.status}`);
+/** Busca perfil + posts, escolhendo o endereço certo conforme o tipo de token. */
+async function fetchInstagram(token) {
+  if (isSystemUserToken(token)) {
+    // Token de usuário do sistema (login unificado): graph.facebook.com/{id-do-instagram}
+    const igId = await getInstagramUserId(token);
+    const [profile, media] = await Promise.all([
+      graph(GRAPH_FACEBOOK, `/${igId}`, { fields: 'username,profile_picture_url' }, token),
+      graph(GRAPH_FACEBOOK, `/${igId}/media`, { fields: MEDIA_FIELDS, limit: LIMIT }, token),
+    ]);
+    return { profile, media };
   }
-  return body;
+
+  // Token do login do Instagram: graph.instagram.com/me
+  const [profile, media] = await Promise.all([
+    graph(GRAPH_INSTAGRAM, '/me', { fields: 'username,profile_picture_url' }, token),
+    graph(GRAPH_INSTAGRAM, '/me/media', { fields: MEDIA_FIELDS, limit: LIMIT }, token),
+  ]);
+  return { profile, media };
 }
 
 /** Converte o formato da API para o formato simples que o front usa. */
