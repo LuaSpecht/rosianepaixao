@@ -1,4 +1,5 @@
 .site-footer {
+  position: relative; /* referência para o crédito, que fica "solto" no fim */
   padding-block: 3.5rem;
   background: var(--vinho-escuro);
   color: rgba(249, 244, 240, 0.8);
@@ -42,4 +43,40 @@
 .footer-copy {
   font-size: 0.85rem;
   color: rgba(249, 244, 240, 0.55);
+}
+
+/* Crédito discreto da desenvolvedora, grudado no fim da página.
+   Posição absoluta: fica dentro do respiro (padding) que o rodapé já tem,
+   então não ocupa espaço nem empurra nenhum outro elemento. */
+.footer-credit {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 10px;
+  text-align: right;
+  font-size: 0.7rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: rgba(249, 244, 240, 0.4);
+  pointer-events: none; /* só o link é clicável */
+}
+.footer-credit a {
+  pointer-events: auto;
+  color: rgba(249, 244, 240, 0.65);
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
+  transition:
+    color 0.3s,
+    background-size 0.4s var(--ease-out);
+}
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  color: var(--linho);
+  background-size: 100% 1px;
+}
+
+@media (max-width: 560px) {
+  /* no celular, centraliza para não ficar embaixo do botão do WhatsApp */
+  .footer-credit {
+    text-align: center;
+  }
 }

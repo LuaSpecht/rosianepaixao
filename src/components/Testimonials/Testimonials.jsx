@@ -62,7 +62,10 @@ export default function Testimonials() {
               <blockquote>
                 <p>{t.text}</p>
               </blockquote>
-              <figcaption>{t.author}</figcaption>
+              <figcaption>
+                <span className="quote-author">{t.author}</span>
+                {t.date && <span className="quote-date">{t.date}</span>}
+              </figcaption>
             </figure>
           ))}
         </div>

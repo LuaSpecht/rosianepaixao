@@ -26,6 +26,13 @@ export default function Footer() {
         </ul>
         <p className="footer-copy">© {new Date().getFullYear()} Rosiane Paixão</p>
       </div>
+
+      <p className="container footer-credit">
+        Desenvolvido por{' '}
+        <a href="https://portfolio-pied-ten-56.vercel.app/" target="_blank" rel="noopener">
+          Specht Developer
+        </a>
+      </p>
     </footer>
   );
 }

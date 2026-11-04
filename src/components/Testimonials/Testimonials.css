@@ -54,21 +54,32 @@
   content: '”';
 }
 .quote figcaption {
+  margin-top: 1.6rem;
+}
+.quote-author {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.6rem;
   font-family: var(--font-script);
   font-size: 2rem;
   color: var(--vinho);
 }
-.quote figcaption::before,
-.quote figcaption::after {
+.quote-author::before,
+.quote-author::after {
   content: '';
   width: 28px;
   height: 1px;
   background: var(--vinho);
   opacity: 0.5;
+}
+.quote-date {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
 }
 
 .quotes-nav {
