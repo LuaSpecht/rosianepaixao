@@ -51,14 +51,28 @@ export const steps = [
   },
 ];
 
-// Depoimentos reais das noivas (sempre com autorização por escrito).
+// Depoimentos das noivas (sempre com autorização por escrito).
 // Para adicionar: copie um bloco { text, author, date } e cole abaixo (date é opcional).
-// Com 1 depoimento só, o carrossel fica parado e os pontinhos somem sozinhos.
+// Com 2 ou mais, o carrossel gira sozinho e mostra os pontinhos de navegação.
 export const testimonials = [
   {
     text: 'Minha maquiagem durou a noite toda e o penteado ficou intacto até eu chegar em casa. Mas o mais importante foi o apoio e a amizade que criei com essa profissional, que deixou o meu dia mais leve e ainda mais lindo. As fotos ficaram perfeitas e o meu coração, calmo. Obrigada por estar lá por mim, Rosi! Você é inesquecível.',
     author: 'Luana',
     date: 'Noiva de outubro de 2026', // opcional
+  },
+
+  // TODO: EXEMPLOS provisórios — trocar pelos depoimentos reais que a Rosiane mandar
+  {
+    text: 'Espaço para o depoimento real de uma noiva da Rosiane. Aqui entra o relato de como ela se sentiu no dia, do jeitinho que escreveu.',
+    author: 'Nome da noiva',
+  },
+  {
+    text: 'Segundo depoimento de exemplo. Prints de conversa no WhatsApp ou comentários do Instagram servem como fonte, com a autorização da noiva.',
+    author: 'Nome da noiva',
+  },
+  {
+    text: 'Terceiro depoimento de exemplo. Textos curtos funcionam melhor aqui, com duas a quatro linhas.',
+    author: 'Nome da noiva',
   },
 ];
 
