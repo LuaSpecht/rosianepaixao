@@ -16,11 +16,15 @@
 
 .quotes {
   display: grid;
+  align-items: start; /* cada depoimento com a própria altura (medida no JSX) */
+  overflow: hidden;
+  transition: height 0.6s var(--ease-out);
   max-width: 720px;
   margin: clamp(2.5rem, 5vw, 4rem) auto 0;
 }
 .quote {
   grid-area: 1 / 1;
+  padding-bottom: 0.2rem; /* folga para a perninha das letras cursivas */
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
@@ -47,11 +51,23 @@
   line-height: 1.55;
   color: var(--tinta);
 }
-.quote p::before {
+.quote p {
+  white-space: pre-line; /* respeita as quebras de linha (\n) do texto */
+}
+.quote p + p {
+  margin-top: 0.9em;
+}
+/* aspas só no começo do primeiro parágrafo e no fim do último */
+.quote p:first-child::before {
   content: '“';
 }
-.quote p::after {
+.quote p:last-child::after {
   content: '”';
+}
+/* depoimentos longos: letra um pouco menor para não virar um paredão */
+.quote.is-long p {
+  font-size: var(--step-1);
+  line-height: 1.6;
 }
 .quote figcaption {
   margin-top: 1.6rem;
@@ -85,7 +101,8 @@
 .quotes-nav {
   display: flex;
   justify-content: center;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.25rem;
   margin-top: 2.5rem;
 }
 .quotes-nav button {
@@ -96,8 +113,9 @@
   padding: 0;
   border: 0;
   background: none;
+  color: var(--vinho);
 }
-.quotes-nav button::before {
+.quotes-dot::before {
   content: '';
   width: 9px;
   height: 9px;
@@ -105,8 +123,28 @@
   border-radius: 50%;
   transition: background-color 0.3s;
 }
-.quotes-nav button[aria-selected='true']::before {
+.quotes-dot[aria-current='true']::before {
   background: var(--vinho);
+}
+.quotes-nav .quotes-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+.quotes-nav .quotes-arrow:first-child {
+  margin-right: 0.5rem;
+}
+.quotes-nav .quotes-arrow:last-child {
+  margin-left: 0.5rem;
+}
+.quotes-nav .quotes-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+.quotes-nav .quotes-arrow:hover,
+.quotes-nav .quotes-arrow:focus-visible {
+  background: rgba(92, 26, 42, 0.08);
 }
 
 /* swatches de maquiagem flutuando */
