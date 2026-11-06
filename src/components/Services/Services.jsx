@@ -1,4 +1,4 @@
-import { services, steps } from '../../data/content.js';
+import { atendimentoQuote, bastidores, services, steps } from '../../data/content.js';
 import './Services.css';
 
 export default function Services() {
@@ -13,15 +13,6 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="services-list">
-          {services.map((service) => (
-            <article className="service" key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-            </article>
-          ))}
-        </div>
-
         <ol className="steps" aria-label="Como funciona">
           {steps.map((step, i) => (
             <li className="step" key={step.title}>
@@ -33,6 +24,53 @@ export default function Services() {
             </li>
           ))}
         </ol>
+
+        {bastidores.length > 0 && (
+          <div className="bastidores">
+            <p className="bastidores-kicker">Bastidores</p>
+            <ul className="bastidores-list">
+              {bastidores.map((foto) => (
+                <li key={foto.src}>
+                  <img src={foto.src} alt={foto.alt} width="720" height="960" loading="lazy" decoding="async" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="services-list">
+          {services.map((service) => (
+            <article className="service" key={service.title}>
+              {service.image && (
+                <img
+                  className="service-photo"
+                  src={service.image.src}
+                  alt={service.image.alt}
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <div className="service-body">
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {atendimentoQuote && (
+          <figure className="services-quote">
+            <blockquote>
+              <p>{atendimentoQuote.text}</p>
+            </blockquote>
+            <figcaption>
+              <span className="quote-author">{atendimentoQuote.author}</span>
+              {atendimentoQuote.date && <span className="quote-date">{atendimentoQuote.date}</span>}
+            </figcaption>
+          </figure>
+        )}
       </div>
     </section>
   );

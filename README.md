@@ -70,10 +70,12 @@ netlify/functions/
 ## Pendências com a Rosiane
 
 - [ ] História dela → texto da seção "Prazer, eu sou a Rosiane" em `src/components/About/About.jsx`
-- [ ] Confirmar etapas do atendimento (conversa → prova → grande dia) → `steps` em `src/data/content.js`
-- [ ] Confirmar serviços (só noivas? madrinhas, mães, convidadas?) → `services` em `src/data/content.js`
-- [ ] Depoimentos reais (com autorização das noivas) → trocar os 3 exemplos marcados com `TODO` em `testimonials`
-- [ ] Logo (se existir) → topo e ícone da aba (`public/favicon.svg`)
+- [x] Etapas do atendimento: conversa → acompanhamento → prova → grande dia (`steps` em `src/data/content.js`)
+- [x] Serviços: noiva + mãe, madrinhas e família (`services` em `src/data/content.js`)
+- [ ] Fotos para a página Atendimento (originais em alta, com autorização das noivas)
+- [ ] Rosiane aprovar os textos novos da página Atendimento (etapas e o card da família)
+- [x] Depoimentos reais (10 noivas) → `testimonials` em `src/data/content.js`
+- [x] Logo: fica o nome em texto; ícone da aba em `public/favicon.svg`
 - [ ] Decidir se quer esconder algum post do Instagram no site
 
 ### Adicionando um depoimento

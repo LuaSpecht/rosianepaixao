@@ -27,29 +27,55 @@ export const shortcuts = [
 export const services = [
   {
     title: 'Maquiagem de noiva',
+    image: { src: '/images/atendimento/servico-maquiagem.webp', alt: 'Rosiane maquiando uma noiva sentada ao ar livre, num jardim' },
     text: 'Pele leve e iluminada, que valoriza os seus traços e acompanha você do making of à última foto da festa.',
   },
   {
     title: 'Penteado de noiva',
+    image: { src: '/images/atendimento/servico-penteado.webp', alt: 'Penteado meio preso com cachos longos, visto de costas, em frente ao espelho' },
     text: 'Do preso clássico às ondas soltas, um penteado pensado para o seu vestido, o seu véu e o estilo da cerimônia.',
+  },
+  {
+    title: 'Acompanhantes',
+    image: { src: '/images/atendimento/servico-acompanhantes.webp', alt: 'Rosiane maquiando uma senhora de cabelos curtos' },
+    text: 'Também cuido de quem vai estar ao seu lado nesse dia. Faço cada maquiagem e penteado pessoalmente, por isso as vagas por casamento são limitadas: vale reservar junto com a sua.',
   },
 ];
 
-// TODO: confirmar com a Rosiane as etapas reais do atendimento
+// Etapas do atendimento (confirmadas em nov/2026)
 export const steps = [
   {
     title: 'Primeira conversa',
-    text: 'Você conta sobre o casamento, o vestido e o que imagina. Tiro as suas dúvidas e envio o orçamento.',
+    text: 'Você me conta sobre o casamento, o vestido e o que imagina. Tiro as suas dúvidas e envio o orçamento.',
+  },
+  {
+    title: 'Acompanhamento',
+    text: 'Ao longo dos meses, acompanho a sua pele e o seu cabelo com dicas de cuidado e lembretes carinhosos: dormir bem, beber água e comer direito.',
   },
   {
     title: 'Prova',
-    text: 'Testamos maquiagem e penteado com calma, ajustando cada detalhe até você se reconhecer no espelho.',
+    text: 'Testamos maquiagem e penteado com calma, no meu studio ou onde você estiver, ajustando cada detalhe até você se reconhecer no espelho.',
   },
   {
     title: 'O grande dia',
-    text: 'Chego no horário combinado, com tudo preparado, para você viver cada instante sem pressa.',
+    text: 'Tudo preparado no horário combinado, para você viver cada instante sem pressa e com uma beleza que dura do making of à última foto da festa.',
   },
 ];
+
+// Faixa de fotos de bastidores na página Atendimento (entre as etapas e os serviços)
+export const bastidores = [
+  { src: '/images/atendimento/bastidor-pele.webp', alt: 'Rosiane preparando a pele de uma noiva de olhos fechados' },
+  { src: '/images/atendimento/bastidor-espelho.webp', alt: 'Noiva de roupão sorrindo para a Rosiane em frente ao espelho' },
+  { src: '/images/atendimento/bastidor-penteado.webp', alt: 'Rosiane ajustando o penteado da noiva já de vestido' },
+  { src: '/images/atendimento/bastidor-tiara.webp', alt: 'Rosiane colocando a tiara na noiva vestida' },
+];
+
+// Trecho de depoimento em destaque na página Atendimento (palavras da noiva)
+export const atendimentoQuote = {
+  text: 'A maquiagem não se moveu um centímetro (e olha que tava chovendo e eu não parei 1s!!)',
+  author: 'Camila',
+  date: 'Noiva de setembro de 2026',
+};
 
 // Depoimentos das noivas (sempre com autorização por escrito).
 // Para adicionar: copie um bloco { text, author, date } e cole abaixo (date é opcional).
