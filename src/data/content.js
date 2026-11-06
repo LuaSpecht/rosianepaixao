@@ -27,12 +27,12 @@ export const shortcuts = [
 export const services = [
   {
     title: 'Maquiagem de noiva',
-    image: { src: '/images/atendimento/servico-maquiagem.webp', alt: 'Rosiane maquiando uma noiva sentada ao ar livre, num jardim' },
+    image: { src: '/images/atendimento/servico-maquiagem.webp', alt: 'Noiva sorrindo, já maquiada, de roupão branco e colar' },
     text: 'Pele leve e iluminada, que valoriza os seus traços e acompanha você do making of à última foto da festa.',
   },
   {
     title: 'Penteado de noiva',
-    image: { src: '/images/atendimento/servico-penteado.webp', alt: 'Penteado meio preso com cachos longos, visto de costas, em frente ao espelho' },
+    image: { src: '/images/atendimento/servico-penteado.webp', alt: 'Rosiane arrumando o coque da noiva, já de vestido, as duas de costas' },
     text: 'Do preso clássico às ondas soltas, um penteado pensado para o seu vestido, o seu véu e o estilo da cerimônia.',
   },
   {
@@ -66,8 +66,8 @@ export const steps = [
 export const bastidores = [
   { src: '/images/atendimento/bastidor-pele.webp', alt: 'Rosiane preparando a pele de uma noiva de olhos fechados' },
   { src: '/images/atendimento/bastidor-espelho.webp', alt: 'Noiva de roupão sorrindo para a Rosiane em frente ao espelho' },
-  { src: '/images/atendimento/bastidor-penteado.webp', alt: 'Rosiane ajustando o penteado da noiva já de vestido' },
   { src: '/images/atendimento/bastidor-tiara.webp', alt: 'Rosiane colocando a tiara na noiva vestida' },
+  { src: '/images/atendimento/bastidor-cachos.webp', alt: 'Penteado meio preso com cachos longos, visto de costas, em frente ao espelho' },
 ];
 
 // Trecho de depoimento em destaque na página Atendimento (palavras da noiva)
