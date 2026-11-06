@@ -1,11 +1,11 @@
 // Textos em lista do site. Editar aqui muda o site sem mexer nos componentes.
 
-// Menu principal (cada item é uma página)
+// Menu principal (cada item é uma página).
+// O Contato não entra aqui: ele é o botão em destaque no fim do menu (Header.jsx).
 export const navLinks = [
   { to: '/', label: 'Início' },
   { to: '/atendimento', label: 'Atendimento' },
   { to: '/noivas', label: 'Noivas' },
-  { to: '/contato', label: 'Contato' },
 ];
 
 // Atalhos no fim da Home para as outras páginas

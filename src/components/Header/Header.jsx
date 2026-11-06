@@ -56,9 +56,11 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <Link to="/contato" className="btn nav-cta" onClick={closeMenu}>
-            Agendar uma conversa
-          </Link>
+          {/* Único atalho para o Contato no menu: botão em destaque.
+              NavLink marca aria-current quando a pessoa já está na página. */}
+          <NavLink to="/contato" className="btn nav-cta" onClick={closeMenu}>
+            Entre em contato
+          </NavLink>
         </nav>
 
         <button
