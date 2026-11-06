@@ -14,13 +14,24 @@
   font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.4rem);
 }
 
+/* Palco: seta | texto (720px) | seta  —  pontinhos embaixo do texto */
+.quotes-stage {
+  --arrow: 44px;
+  display: grid;
+  grid-template-columns: var(--arrow) minmax(0, 720px) var(--arrow);
+  grid-template-areas:
+    'prev quotes next'
+    '.    dots   .';
+  column-gap: clamp(1rem, 3vw, 2.5rem);
+  justify-content: center;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
 .quotes {
+  grid-area: quotes;
   display: grid;
   align-items: start; /* cada depoimento com a própria altura (medida no JSX) */
   overflow: hidden;
   transition: height 0.6s var(--ease-out);
-  max-width: 720px;
-  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
 }
 .quote {
   grid-area: 1 / 1;
@@ -98,22 +109,53 @@
   color: var(--tinta-suave);
 }
 
-.quotes-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 2.5rem;
-}
-.quotes-nav button {
+.quotes-arrow,
+.quotes-dot {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
   padding: 0;
   border: 0;
   background: none;
   color: var(--vinho);
+  cursor: pointer;
+}
+/* setas: sempre na altura das primeiras linhas do texto, nunca "andam" */
+.quotes-arrow {
+  align-self: start;
+  margin-top: 0.4rem;
+  width: var(--arrow);
+  height: var(--arrow);
+  border: 1px solid rgba(92, 26, 42, 0.25);
+  border-radius: 50%;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+.quotes-arrow--prev {
+  grid-area: prev;
+}
+.quotes-arrow--next {
+  grid-area: next;
+}
+.quotes-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+.quotes-arrow:hover,
+.quotes-arrow:focus-visible {
+  background: rgba(92, 26, 42, 0.08);
+  border-color: var(--vinho);
+}
+
+.quotes-dots {
+  grid-area: dots;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.quotes-dot {
+  width: 32px;
+  height: 32px;
 }
 .quotes-dot::before {
   content: '';
@@ -126,25 +168,29 @@
 .quotes-dot[aria-current='true']::before {
   background: var(--vinho);
 }
-.quotes-nav .quotes-arrow {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: background-color 0.3s;
-}
-.quotes-nav .quotes-arrow:first-child {
-  margin-right: 0.5rem;
-}
-.quotes-nav .quotes-arrow:last-child {
-  margin-left: 0.5rem;
-}
-.quotes-nav .quotes-arrow svg {
-  width: 18px;
-  height: 18px;
-}
-.quotes-nav .quotes-arrow:hover,
-.quotes-nav .quotes-arrow:focus-visible {
-  background: rgba(92, 26, 42, 0.08);
+
+/* Celular: não cabe seta ao lado sem espremer o texto, então as setas e os
+   pontinhos ficam numa linha fixa logo abaixo do título, acima do depoimento. */
+@media (max-width: 760px) {
+  .quotes-stage {
+    grid-template-columns: 1fr auto auto auto 1fr;
+    grid-template-areas:
+      '.      prev   dots   next   .'
+      'quotes quotes quotes quotes quotes';
+    column-gap: 0.5rem;
+    margin-top: 1.75rem;
+  }
+  .quotes-stage .quotes {
+    margin-top: 1.75rem;
+  }
+  .quotes-arrow {
+    --arrow: 40px;
+    align-self: center;
+    margin-top: 0;
+  }
+  .quotes-dots {
+    margin-top: 0;
+  }
 }
 
 /* swatches de maquiagem flutuando */

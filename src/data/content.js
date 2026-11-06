@@ -129,6 +129,26 @@ export const testimonials = [
     author: 'Caroline',
     date: 'Noiva de dezembro de 2022',
   },
+  {
+    text: [
+      'Foi tudo simplesmente perfeito! Superou todas as minhas expectativas! Não só você ouviu todas as minhas preocupações e teve cuidado em atendê-las, mas também esteve comigo em todo o processo, não só no dia, mas desde o momento em que nos falamos a primeira vez! Me senti tão segura que fechei logo assim que falamos e foi a melhor decisão que tomei!',
+      'A equipe inteira foi muito atenciosa e me fez sentir muito bem no meu dia!\nAmei muito, todo mundo falou que eu tava linda demais e a maquiagem não se moveu um centímetro (e olha que tava chovendo e eu não parei 1s!!)',
+    ],
+    author: 'Camila',
+    date: 'Noiva de setembro de 2026',
+  },
+  {
+    text: [
+      'O dia 15/12/23 foi um momento muito marcante em minha vida: eu me casei com o amor da minha vida! Tive o privilégio de conhecer a Rosiane! Depois da maquiagem e do penteado pronto, ela me ajudou a colocar o vestido. Eu me senti a noiva mais linda do mundo!',
+      'Esse dia foi como eu sonhei porque foi numa fase madura da minha vida. Tudo que decidi para o dia do meu casamento, por mais simples, foi exatamente o que eu queria!',
+      'Quando conheci a Rosiane, a princípio foi pelo WhatsApp. Nesse momento eu já me senti acolhida! Ela se coloca no seu lugar! Ela tem a maior paciência para te ouvir! Ela absorveu os meus desejos e também deu muitas ideias! E no dia do casamento, ao chegar no seu espaço, me senti em casa!',
+      'Desde a prévia e no dia oficial foi tudo feito com muito carinho e profissionalismo!',
+      'O que mais marcou o nosso momento, foi a tua paciência, o teu ouvir, e a competência para fazer a maquiagem. Arrasou!!',
+      'Quando cheguei no Cartório, meu noivo ficou radiante! E meus convidados amaram! E depois, vendo as fotos, só elogios!',
+    ],
+    author: 'Andressa',
+    date: 'Noiva de dezembro de 2023',
+  },
 ];
 
 export const serviceOptions = [

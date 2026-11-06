@@ -90,59 +90,67 @@ export default function Testimonials() {
           Palavras de quem viveu o grande dia
         </h2>
 
-        <div className="quotes" style={height ? { height } : undefined}>
-          {testimonials.map((t, i) => (
-            <figure
-              className={`quote ${i === current ? 'is-active' : ''} ${textLength(t.text) > LONG_TEXT ? 'is-long' : ''}`}
-              key={i}
-              ref={(el) => (quoteRefs.current[i] = el)}
-              aria-hidden={i !== current}
-            >
-              <blockquote>
-                {toParagraphs(t.text).map((p, j) => (
-                  <p key={j}>{p}</p>
-                ))}
-              </blockquote>
-              <figcaption>
-                <span className="quote-author">{t.author}</span>
-                {t.date && <span className="quote-date">{t.date}</span>}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-
-        {testimonials.length > 1 && (
-          <div className="quotes-nav" role="group" aria-label="Navegar pelos depoimentos">
+        {/* Palco: seta | depoimento | seta. As setas ficam sempre no mesmo lugar
+            (alinhadas ao topo do texto), não importa o tamanho do depoimento. */}
+        <div className={`quotes-stage ${total > 1 ? 'has-nav' : ''}`}>
+          {total > 1 && (
             <button
               type="button"
-              className="quotes-arrow"
+              className="quotes-arrow quotes-arrow--prev"
               aria-label="Depoimento anterior"
               onClick={() => setCurrent((c) => (c - 1 + total) % total)}
             >
               <Icon name="chevron-left" />
             </button>
+          )}
 
-            {dots.map((i) => (
-              <button
+          <div className="quotes" style={height ? { height } : undefined}>
+            {testimonials.map((t, i) => (
+              <figure
+                className={`quote ${i === current ? 'is-active' : ''} ${textLength(t.text) > LONG_TEXT ? 'is-long' : ''}`}
                 key={i}
-                type="button"
-                className="quotes-dot"
-                aria-current={i === current ? 'true' : undefined}
-                aria-label={`Depoimento ${i + 1} de ${total}`}
-                onClick={() => setCurrent(i)}
-              />
+                ref={(el) => (quoteRefs.current[i] = el)}
+                aria-hidden={i !== current}
+              >
+                <blockquote>
+                  {toParagraphs(t.text).map((p, j) => (
+                    <p key={j}>{p}</p>
+                  ))}
+                </blockquote>
+                <figcaption>
+                  <span className="quote-author">{t.author}</span>
+                  {t.date && <span className="quote-date">{t.date}</span>}
+                </figcaption>
+              </figure>
             ))}
+          </div>
 
+          {total > 1 && (
             <button
               type="button"
-              className="quotes-arrow"
+              className="quotes-arrow quotes-arrow--next"
               aria-label="Próximo depoimento"
               onClick={() => setCurrent((c) => (c + 1) % total)}
             >
               <Icon name="chevron-right" />
             </button>
-          </div>
-        )}
+          )}
+
+          {total > 1 && (
+            <div className="quotes-dots" role="group" aria-label="Escolher depoimento">
+              {dots.map((i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="quotes-dot"
+                  aria-current={i === current ? 'true' : undefined}
+                  aria-label={`Depoimento ${i + 1} de ${total}`}
+                  onClick={() => setCurrent(i)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
